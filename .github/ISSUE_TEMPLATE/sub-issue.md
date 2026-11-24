@@ -3,14 +3,18 @@ name: Sub-issue
 about: Track one deliverable under a parent issue.
 ---
 
-## <picture><img src="https://raw.githubusercontent.com/alxleo/.github/main/.github/issue-icons/change.svg" width="18" height="18" alt=""></picture> Deliverable
+<!-- Show one deliverable with a familiar convention. Align the same items in the − and + rows, or use a short line if that shows the result directly. Use arrows only for relationships with a meaningful direction. Link the parent for shared context. -->
 
-<!-- Show this deliverable in one sentence, a short before/after table, or a small diagram. Link to the parent for shared context. -->
-
-## <picture><img src="https://raw.githubusercontent.com/alxleo/.github/main/.github/issue-icons/check.svg" width="18" height="18" alt=""></picture> Done when
+| | Deliverable |
+| --- | --- |
+| − | <!-- Previous state. --> |
+| + | <!-- New state. --> |
 
 - [ ] <!-- Give one observable check. -->
 
-## <picture><img src="https://raw.githubusercontent.com/alxleo/.github/main/.github/issue-icons/link.svg" width="18" height="18" alt=""></picture> Evidence
+<details>
+<summary>Evidence</summary>
 
-<!-- Link evidence for this deliverable. Delete this section if empty. Set the parent and blockers in GitHub. -->
+<!-- Link evidence for this deliverable. Delete the section if empty. Set the parent and blockers in GitHub. -->
+
+</details>

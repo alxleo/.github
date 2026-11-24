@@ -3,18 +3,18 @@ name: Issue
 about: Track a change or investigation and how to verify the result.
 ---
 
-## <picture><img src="https://raw.githubusercontent.com/alxleo/.github/main/.github/issue-icons/change.svg" width="18" height="18" alt=""></picture> What changes
+<!-- Start with familiar conventions. Align the same items in the − and + rows. Use a diagram, paired screenshots, or a short line when it shows the change more directly. Use arrows only for relationships with a meaningful direction. Keep labels that identify something or clarify a result. -->
 
-<!-- Compare before and after in short phrases. Put a Mermaid diagram above the table when flow, dependencies, or rollout order explain the change. Drop the table when a diagram or one sentence already conveys the change. -->
-
-| Before | After |
+| | Change |
 | --- | --- |
-| | |
+| − | <!-- Previous state. --> |
+| + | <!-- New state. --> |
 
-## <picture><img src="https://raw.githubusercontent.com/alxleo/.github/main/.github/issue-icons/check.svg" width="18" height="18" alt=""></picture> Done when
+- [ ] <!-- State the next observable check or the question to answer. Keep any blocker or decision visible here. -->
 
-- [ ] <!-- Name an observable result or the question the investigation will answer. Put the next open check first. -->
+<details>
+<summary>Evidence</summary>
 
-## <picture><img src="https://raw.githubusercontent.com/alxleo/.github/main/.github/issue-icons/link.svg" width="18" height="18" alt=""></picture> Evidence
+<!-- Add completed checks, artifacts, or PRs. Delete the section if empty. Set the milestone and blockers in GitHub. -->
 
-<!-- Link supporting artifacts or PRs. Delete this section if empty. Set the milestone and blockers in GitHub. -->
+</details>
