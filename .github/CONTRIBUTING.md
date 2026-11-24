@@ -12,15 +12,18 @@ From a checkout of the relevant repository, `gh issue create --template "Sub-iss
 
 | What the reader needs | Show it with |
 | --- | --- |
-| What changes at a glance | A before/after table with short phrases, or a sentence for a single change. |
-| How parts connect, what happens next, or where a path branches | A small Mermaid diagram in the issue body, above any supporting table. Label the paths and states in words. |
-| When to consider it done | An observable checklist with the next open check first. |
-| Where to verify it | Links to the relevant evidence or PRs. |
+| What changed | Use a familiar convention first. Mark a comparison with `−` and `+`, and align matching items. For a UI change, pair screenshots at the same scale. |
+| How parts relate | Use grouping for shared scope. Draw an arrow when its direction conveys a dependency, flow, or other real relationship. |
+| What passed or needs action | Put a checkmark beside each verified target. Keep the next action, blocker, or decision visible in one precise line. |
+| Where to verify it | Link the evidence to the result it supports. Put completed checks, logs, and supporting PRs in the collapsed evidence section. |
 
-The templates supply line icons beside text headings. Start from the effective
-template in GitHub or pass its name with `gh issue create --template`. If you
-supply a complete body through a CLI or API, use the template as its starting
-point. You can read it with `repository.issueTemplates` in the GitHub GraphQL API.
+Keep words that identify an item, qualify a result, or tell the reader what
+to do. A short sentence can carry a simple issue. Give images alt text and
+diagrams an accessible description.
+
+Start from the effective template in GitHub or pass its name with
+`gh issue create --template`. For a complete CLI or API body, read the
+template with `repository.issueTemplates` in the GitHub GraphQL API.
 
 ## Milestone description
 
