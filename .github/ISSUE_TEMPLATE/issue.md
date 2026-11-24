@@ -3,16 +3,18 @@ name: Issue
 about: Track a change or investigation and how to verify the result.
 ---
 
-## What changes
+## <picture><img src="https://raw.githubusercontent.com/alxleo/.github/main/.github/issue-icons/change.svg" width="18" height="18" alt=""></picture> What changes
 
-<!-- State the outcome in one sentence. Use the table when a before/after comparison helps. -->
+<!-- Compare before and after in short phrases. Put a Mermaid diagram above the table when flow, dependencies, or rollout order explain the change. Drop the table when a diagram or one sentence already conveys the change. -->
 
-| Today | After |
+| Before | After |
 | --- | --- |
 | | |
 
-## Done when
+## <picture><img src="https://raw.githubusercontent.com/alxleo/.github/main/.github/issue-icons/check.svg" width="18" height="18" alt=""></picture> Done when
 
-- [ ] <!-- Give an observable check. For an investigation, name the question this work will answer. -->
+- [ ] <!-- Name an observable result or the question the investigation will answer. Put the next open check first. -->
 
-<!-- Choose the milestone in the sidebar when this is part of one. Use Relationships for blockers. For plans, architecture, Mermaid diagrams, dependency maps, or verification evidence, attach an artifact after creating the issue and link it here. -->
+## <picture><img src="https://raw.githubusercontent.com/alxleo/.github/main/.github/issue-icons/link.svg" width="18" height="18" alt=""></picture> Evidence
+
+<!-- Link supporting artifacts or PRs. Delete this section if empty. Set the milestone and blockers in GitHub. -->
