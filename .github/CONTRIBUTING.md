@@ -8,6 +8,20 @@
 
 From a checkout of the relevant repository, `gh issue create --template "Sub-issue" --parent PARENT_NUMBER` fills in the template and links the parent when you submit.
 
+## Issue body
+
+| What the reader needs | Show it with |
+| --- | --- |
+| What changes at a glance | A before/after table with short phrases, or a sentence for a single change. |
+| How parts connect, what happens next, or where a path branches | A small Mermaid diagram in the issue body, above any supporting table. Label the paths and states in words. |
+| When to consider it done | An observable checklist with the next open check first. |
+| Where to verify it | Links to the relevant evidence or PRs. |
+
+The templates supply line icons beside text headings. Start from the effective
+template in GitHub or pass its name with `gh issue create --template`. If you
+supply a complete body through a CLI or API, use the template as its starting
+point. You can read it with `repository.issueTemplates` in the GitHub GraphQL API.
+
 ## Milestone description
 
 In **Issues → Milestones → New milestone**, give the milestone an outcome-oriented title. Paste and fill in this description.
@@ -32,7 +46,7 @@ In **Issues → Milestones → New milestone**, give the milestone an outcome-or
 
 | What you want to show | Format |
 | --- | --- |
-| Architecture, data flow, or sequence | A Mermaid diagram for the flow. Keep the Mermaid source in a Markdown artifact alongside the design, or use self-contained HTML for an interactive diagram. |
+| Detailed architecture, data flow, or sequence | A Markdown artifact with the full diagram, or self-contained HTML for an interactive diagram. Put the overview in the issue body. |
 | Dependencies or rollout order | A Mermaid or HTML map when the order needs explaining. Set the actual issue blockers in **Relationships → Mark as blocked by** so they appear in GitHub. |
 | Plan, decision, or research | A versioned Markdown artifact. |
 | UI proposal, comparison, or verification report | Self-contained HTML when readers benefit from filters, drill-down, or toggling views. |
