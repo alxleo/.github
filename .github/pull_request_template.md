@@ -1,10 +1,11 @@
 Issue: <!-- #123 for this repository, or the full URL for an issue in another repository. -->
 
 <!--
-Give the reviewer the change, reason, risk and review focus in at most
-120 words of visible prose, including prose in tables and diagrams. Short
-labels, values and legends are exempt. A small change can use one short
-comparison. Remove sections that add no information.
+Give the reviewer the change, reason, milestone progress where applicable,
+risk and review focus in at most 120 words of visible prose, including
+prose in tables and diagrams. Short labels, values and legends are exempt.
+A small change can use one short comparison. Remove sections that add no
+information.
 
 For a behavior change, compare the same task, starting state and action.
 Mark unobserved results as expected. Match the view, viewport and timing
@@ -16,7 +17,8 @@ Label units and conditions. Describe visuals in text and use no emoji.
 | | |
 | --- | --- |
 | **What this does** | <!-- One sentence on what changes for the user or maintainer. --> |
-| **Why this is needed** | <!-- The problem or consequence that makes the change worthwhile. --> |
+| **Why this is needed** | <!-- What happens if we wait? Explain why this approach now. If another option was credible, name what tipped the choice. --> |
+| **Milestone progress** | <!-- Link the milestone or its acceptance issue. Name the completion criterion this PR advances and the remaining gap, if any. Omit this row if the work has no milestone. --> |
 | **Risk / undo** | <!-- Low, Medium or High, what could go wrong, and how to undo the change. --> |
 | **Review** | <!-- Ask the question most likely to change the decision. Link directly to what the reviewer should inspect. --> |
 
