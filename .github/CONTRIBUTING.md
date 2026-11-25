@@ -25,6 +25,15 @@ Start from the effective template in GitHub or pass its name with
 `gh issue create --template`. For a complete CLI or API body, read the
 template with `repository.issueTemplates` in the GitHub GraphQL API.
 
+## Pull request body
+
+Start implementation PRs with `Issue: #123` for an issue in the same repository
+or `Issue:` followed by the full issue URL for work tracked elsewhere.
+
+Use the same [visual conventions](#issue-body) to show the change. Keep any
+reviewer decision or blocker visible. Put the checks you ran and their results
+under **Verification**.
+
 ## Milestone description
 
 In **Issues → Milestones → New milestone**, give the milestone an outcome-oriented title. Paste and fill in this description.
