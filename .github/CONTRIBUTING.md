@@ -8,14 +8,30 @@
 
 From a checkout of the relevant repository, `gh issue create --template "Sub-issue" --parent PARENT_NUMBER` fills in the template and links the parent when you submit.
 
-## Issue body
+## Write for the reader
+
+Lead with the result, blocker or decision. Use plain English, active voice and
+concrete details. Cut setup and context the reader already has. When someone
+needs to act, say who should do what. Link evidence beside the result.
 
 | What the reader needs | Show it with |
 | --- | --- |
-| What changed | Use a familiar convention first. Mark a comparison with `−` and `+`, and align matching items. For a UI change, pair screenshots at the same scale. |
-| How parts relate | Use grouping for shared scope. Draw an arrow when its direction conveys a dependency, flow, or other real relationship. |
-| What passed or needs action | Put a checkmark beside each verified target. Keep the next action, blocker, or decision visible in one precise line. |
-| Where to verify it | Link the evidence to the result it supports. Put completed checks, logs, and supporting PRs in the collapsed evidence section. |
+| One result or request | One short sentence. |
+| What changed or how options compare | A small table with matching items aligned. Mark removals and additions with `−` and `+`. |
+| What a UI change looks like | Before and after screenshots at the same scale. |
+| How parts relate | A small diagram. Group related parts and use arrows for flow or dependencies. |
+| Which checks passed | A short list or table with one result per target. Put a checkmark beside each verified target. |
+
+Give images alt text and diagrams an accessible description. For repeated statuses,
+use one plain-text legend beside the visual. Use distinct symbols so color is optional.
+
+● kept · × dropped · ⚑ flagged · ✓ allowed · ↷ skipped · — N/A
+
+## Issue body
+
+Use the [layout guide](#write-for-the-reader) to show the change and next
+action. Put detailed checks, logs, and supporting PRs in the collapsed evidence
+section.
 
 Check length before publishing or updating. Count prose, including sentences
 in tables. Visualizations, icons, short labels, values and legends are exempt.
@@ -24,13 +40,6 @@ in tables. Visualizations, icons, short labels, values and legends are exempt.
 | --- | ---: |
 | Issue body | 120 |
 | Issue artifact | 150 |
-
-Keep the change, next action and proof visible. Link logs and source evidence.
-A short sentence can carry a simple issue. Give images alt text and diagrams
-an accessible description. For repeated statuses, use one plain-text legend
-beside the visual. Use distinct symbols so color is optional.
-
-● kept · × dropped · ⚑ flagged · ✓ allowed · ↷ skipped · — N/A
 
 Start from the effective template in GitHub or pass its name with
 `gh issue create --template`. For a complete CLI or API body, read the
@@ -41,9 +50,19 @@ template with `repository.issueTemplates` in the GitHub GraphQL API.
 Start implementation PRs with `Issue: #123` for an issue in the same repository
 or `Issue:` followed by the full issue URL for work tracked elsewhere.
 
-Use the same [visual conventions](#issue-body) to show the change. Keep any
+Use the [layout guide](#write-for-the-reader) to show the change. Keep any
 reviewer decision or blocker visible. Put the checks you ran and their results
 under **Verification**.
+
+## Issue and PR comments
+
+For routine updates, one or two sentences usually cover what changed and what
+happens next. Link to the check or artifact for details. Use a brief list or table
+when there are several results to scan. Give a decision request its own line.
+
+> **Alex, approve the one-site pilot.**
+>
+> Staging passed both checks.
 
 ## Milestone description
 
