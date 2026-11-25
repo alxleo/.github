@@ -17,9 +17,16 @@ From a checkout of the relevant repository, `gh issue create --template "Sub-iss
 | What passed or needs action | Put a checkmark beside each verified target. Keep the next action, blocker, or decision visible in one precise line. |
 | Where to verify it | Link the evidence to the result it supports. Put completed checks, logs, and supporting PRs in the collapsed evidence section. |
 
-Keep words that identify an item, qualify a result, or tell the reader what
-to do. A short sentence can carry a simple issue. Give images alt text and
-diagrams an accessible description.
+Check length before publishing or updating. Count visible prose and table text.
+
+| Format | Word limit |
+| --- | ---: |
+| Issue body | 120 |
+| Issue artifact | 150 |
+
+Keep the change, next action and proof visible. Link logs and source evidence.
+A short sentence can carry a simple issue. Give images alt text and diagrams
+an accessible description.
 
 Start from the effective template in GitHub or pass its name with
 `gh issue create --template`. For a complete CLI or API body, read the
