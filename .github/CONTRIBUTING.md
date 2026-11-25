@@ -17,7 +17,8 @@ From a checkout of the relevant repository, `gh issue create --template "Sub-iss
 | What passed or needs action | Put a checkmark beside each verified target. Keep the next action, blocker, or decision visible in one precise line. |
 | Where to verify it | Link the evidence to the result it supports. Put completed checks, logs, and supporting PRs in the collapsed evidence section. |
 
-Check length before publishing or updating. Count visible prose and table text.
+Check length before publishing or updating. Count prose, including sentences
+in tables. Visualizations, icons, short labels, values and legends are exempt.
 
 | Format | Word limit |
 | --- | ---: |
@@ -26,7 +27,10 @@ Check length before publishing or updating. Count visible prose and table text.
 
 Keep the change, next action and proof visible. Link logs and source evidence.
 A short sentence can carry a simple issue. Give images alt text and diagrams
-an accessible description.
+an accessible description. For repeated statuses, use one plain-text legend
+beside the visual. Use distinct symbols so color is optional.
+
+● kept · × dropped · ⚑ flagged · ✓ allowed · ↷ skipped · — N/A
 
 Start from the effective template in GitHub or pass its name with
 `gh issue create --template`. For a complete CLI or API body, read the
