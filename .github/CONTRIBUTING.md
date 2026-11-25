@@ -50,9 +50,10 @@ template with `repository.issueTemplates` in the GitHub GraphQL API.
 Start implementation PRs with `Issue: #123` for an issue in the same repository
 or `Issue:` followed by the full issue URL for work tracked elsewhere.
 
-Use the [layout guide](#write-for-the-reader) to show the change. Keep any
-reviewer decision or blocker visible. Put the checks you ran and their results
-under **Verification**.
+Start from the repository's effective PR template. The
+[account default](pull_request_template.md) opens with the change, reason,
+risk and review focus. It pairs Before and After, keeps decisions and blockers
+visible, and folds supporting checks under **Checks and evidence**.
 
 ## Issue and PR comments
 
