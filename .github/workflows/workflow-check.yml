@@ -1,0 +1,20 @@
+name: Workflow Check
+
+on:
+  pull_request:
+  merge_group:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  workflow-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # Load the local action from the same revision that the action checks.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./actions/workflow-check
