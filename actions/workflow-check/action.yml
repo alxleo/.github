@@ -1,5 +1,5 @@
 name: Workflow Check
-description: Run actionlint and offline zizmor, with a fast path for Markdown-only pull requests
+description: Run actionlint and offline zizmor in the caller checkout
 inputs:
   toolchain:
     description: Use pinned Docker images (docker) or the scanner binaries installed on the runner (runner)
@@ -14,30 +14,15 @@ runs:
       run: |
         echo "::error::Workflow Check toolchain must be docker or runner."
         exit 1
-    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      with:
-        # The PR checkout is GitHub's merge commit. Its first parent is the base.
-        fetch-depth: ${{ github.event_name == 'pull_request' && 2 || 1 }}
-        persist-credentials: false
-    - name: Detect Markdown-only changes
-      id: markdown-scope
-      if: github.event_name == 'pull_request'
-      shell: bash
-      run: git diff --name-only --no-renames HEAD^1 HEAD -- . ':(exclude,icase,glob)**/*.md' | awk 'END { print "markdown_only=" (NR == 0) }' >> "$GITHUB_OUTPUT"
-    - name: Report Markdown-only skip
-      if: steps.markdown-scope.outputs.markdown_only == '1'
-      shell: bash
-      run: echo "Markdown-only pull request. Workflow lint and audit skipped."
-    # Running Docker as a command defers image preparation until this step.
     - name: Lint workflows with the pinned image
-      if: steps.markdown-scope.outputs.markdown_only != '1' && inputs.toolchain == 'docker'
+      if: inputs.toolchain == 'docker'
       shell: bash
       run: >-
         docker run --rm --network none --user "$(id -u):$(id -g)" --env HOME=/tmp
         --volume "$GITHUB_WORKSPACE:$GITHUB_WORKSPACE:ro" --workdir "$GITHUB_WORKSPACE"
         rhysd/actionlint:1.7.12@sha256:b1934ee5f1c509618f2508e6eb47ee0d3520686341fec936f3b79331f9315667
     - name: Audit workflows with the pinned image
-      if: steps.markdown-scope.outputs.markdown_only != '1' && inputs.toolchain == 'docker'
+      if: inputs.toolchain == 'docker'
       shell: bash
       run: >-
         docker run --rm --network none --user "$(id -u):$(id -g)" --env HOME=/tmp
@@ -46,11 +31,11 @@ runs:
         --offline --format=github --min-severity=medium --strict-collection
         --collect workflows actions -- .
     - name: Lint workflows with the runner toolchain
-      if: steps.markdown-scope.outputs.markdown_only != '1' && inputs.toolchain == 'runner'
+      if: inputs.toolchain == 'runner'
       shell: bash
       run: actionlint
     - name: Audit workflows with the runner toolchain
-      if: steps.markdown-scope.outputs.markdown_only != '1' && inputs.toolchain == 'runner'
+      if: inputs.toolchain == 'runner'
       shell: bash
       run: >-
         zizmor --offline --format=github --min-severity=medium --strict-collection
