@@ -1,0 +1,25 @@
+name: Workflow Check
+
+on:
+  pull_request:
+  merge_group:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  change-scope:
+    uses: alxleo/coding-standards/.github/workflows/pr-scope.yml@4734908cb3ce795e7f1b90fa00af571ff5f3b2d1 # coding-standards#194
+
+  workflow-check:
+    needs: change-scope
+    if: ${{ !cancelled() && needs.change-scope.outputs.markdown-only != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # The checkout supplies the local action at the revision under review.
+      - uses: ./actions/workflow-check # zizmor: ignore[self-repository]

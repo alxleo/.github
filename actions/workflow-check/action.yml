@@ -1,0 +1,42 @@
+name: Workflow Check
+description: Run actionlint and offline zizmor in the caller checkout
+inputs:
+  toolchain:
+    description: Use pinned Docker images (docker) or the scanner binaries installed on the runner (runner)
+    required: false
+    default: docker
+runs:
+  using: composite
+  steps:
+    - name: Validate toolchain
+      if: inputs.toolchain != 'docker' && inputs.toolchain != 'runner'
+      shell: bash
+      run: |
+        echo "::error::Workflow Check toolchain must be docker or runner."
+        exit 1
+    - name: Lint workflows with the pinned image
+      if: inputs.toolchain == 'docker'
+      shell: bash
+      run: >-
+        docker run --rm --network none --user "$(id -u):$(id -g)" --env HOME=/tmp
+        --volume "$GITHUB_WORKSPACE:$GITHUB_WORKSPACE:ro" --workdir "$GITHUB_WORKSPACE"
+        rhysd/actionlint:1.7.12@sha256:b1934ee5f1c509618f2508e6eb47ee0d3520686341fec936f3b79331f9315667
+    - name: Audit workflows with the pinned image
+      if: inputs.toolchain == 'docker'
+      shell: bash
+      run: >-
+        docker run --rm --network none --user "$(id -u):$(id -g)" --env HOME=/tmp
+        --volume "$GITHUB_WORKSPACE:$GITHUB_WORKSPACE:ro" --workdir "$GITHUB_WORKSPACE"
+        ghcr.io/zizmorcore/zizmor:1.32.0@sha256:3014cc8f68f663935f69b3c3e0e41f5ce102b268d97db13db0f62208747f860d
+        --offline --format=github --min-severity=medium --strict-collection
+        --collect workflows actions -- .
+    - name: Lint workflows with the runner toolchain
+      if: inputs.toolchain == 'runner'
+      shell: bash
+      run: actionlint
+    - name: Audit workflows with the runner toolchain
+      if: inputs.toolchain == 'runner'
+      shell: bash
+      run: >-
+        zizmor --offline --format=github --min-severity=medium --strict-collection
+        --collect workflows actions -- .
